@@ -9,7 +9,7 @@ export default function App(){
 
   const [alcool, setAlcool] = useState('');
   const [gasolina, setGasolina] = useState('');
-  const [btn, setBtn] = useState(true)
+  const [btn, setBtn] = useState(false)
 
   function abrirModal(){
     setBtn(true)
@@ -36,9 +36,9 @@ export default function App(){
         </View>
       </View>
 
-      <TouchableOpacity style={styles.areaBtn}>
+      <TouchableOpacity style={styles.areaBtn} onPress={abrirModal}>
         <Text style={styles.textBtn}>Calcular</Text>
-        <Modal visible={abrirModal} >
+        <Modal visible={btn} >
           <Text>Calcular</Text>
         </Modal>
       </TouchableOpacity>
