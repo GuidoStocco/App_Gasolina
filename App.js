@@ -13,6 +13,20 @@ export default function App(){
           <Image source={img} style={styles.logo}/>
           <Text style={styles.imgText}>Qual Melhor Opção?</Text>
       </View>
+
+      <View style={styles.areaCalculo}>
+        <View style={styles.areaInput}>
+          <Text style={styles.text}>Álcool (preço por litro):</Text>    
+          <TextInput style={styles.input} placeholder='Ex: 4.60' onChangeText={(text) => {}}
+              keyboardType='numeric'/>
+        </View>
+
+        <View style={styles.areaInput}>
+          <Text style={styles.text}>Gasolina (preço por litro):</Text>    
+          <TextInput style={styles.input} placeholder='Ex: 7.50' onChangeText={(text) => {}}
+            keyboardType='numeric'/>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
@@ -35,5 +49,26 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color:'#fff',
     fontWeight: 'bold'
+  },
+  areaCalculo:{
+    marginTop: 70,
+  },
+  text:{
+    color:"#fff",
+    fontSize: 18,
+    marginLeft: 19,
+    marginBottom: 8
+  },
+  areaInput:{
+    width: '100%',
+    marginBottom: 25
+  },
+  input:{
+    width: '90%',
+    backgroundColor: '#f1f1f1',
+    borderRadius: 7,
+    padding: 10,
+    fontSize: 18,
+    alignSelf: 'center'
   }
 })
