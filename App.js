@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Modal, Image} from 'react-native';
 
-
+import Calculo from './src/Modal/Calcular';
 
 export default function App(){
 
@@ -39,7 +39,7 @@ export default function App(){
       <TouchableOpacity style={styles.areaBtn} onPress={abrirModal}>
         <Text style={styles.textBtn}>Calcular</Text>
         <Modal visible={btn} >
-          <Text>Calcular</Text>
+          <Calculo/>
         </Modal>
       </TouchableOpacity>
     </SafeAreaView>
