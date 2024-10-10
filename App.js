@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, SafeAreaView, StyleSheet, TextInput, TouchableOpacity, Modal, Image} from 'react-native';
 
 
 
 export default function App(){
 
-  const img = require('./assets/logo.png')
+  const img = require('./assets/logo.png');
+
+  const [alcool, setAlcool] = useState('');
+  const [gasolina, setGasolina] = useState('');
+  const [btn, setBtn] = useState(true)
+
+  function abrirModal(){
+    setBtn(true)
+  }
 
   return(
     <SafeAreaView style={styles.container}>
@@ -17,16 +25,23 @@ export default function App(){
       <View style={styles.areaCalculo}>
         <View style={styles.areaInput}>
           <Text style={styles.text}>Álcool (preço por litro):</Text>    
-          <TextInput style={styles.input} placeholder='Ex: 4.60' onChangeText={(text) => {}}
+          <TextInput style={styles.input} placeholder='Ex: 4.60' onChangeText={(text) => setAlcool(text)}
               keyboardType='numeric'/>
         </View>
 
         <View style={styles.areaInput}>
           <Text style={styles.text}>Gasolina (preço por litro):</Text>    
-          <TextInput style={styles.input} placeholder='Ex: 7.50' onChangeText={(text) => {}}
+          <TextInput style={styles.input} placeholder='Ex: 7.50' onChangeText={(text) => setGasolina(text)}
             keyboardType='numeric'/>
         </View>
       </View>
+
+      <TouchableOpacity style={styles.areaBtn}>
+        <Text style={styles.textBtn}>Calcular</Text>
+        <Modal visible={abrirModal} >
+          <Text>Calcular</Text>
+        </Modal>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -69,6 +84,18 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     padding: 10,
     fontSize: 18,
+    alignSelf: 'center'
+  },
+  areaBtn:{
+    width: '90%',
+    backgroundColor: '#cc0000',
+    borderRadius: 7,
+    padding: 10,
+    alignSelf: 'center'
+  },
+  textBtn:{
+    color: '#fff',
+    fontSize: 25,
     alignSelf: 'center'
   }
 })
