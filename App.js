@@ -15,6 +15,10 @@ export default function App(){
     setBtn(true)
   }
 
+  function sairModal(){
+    setBtn(false)
+  }
+
   return(
     <SafeAreaView style={styles.container}>
       <View style={styles.img}>
@@ -38,8 +42,8 @@ export default function App(){
 
       <TouchableOpacity style={styles.areaBtn} onPress={abrirModal}>
         <Text style={styles.textBtn}>Calcular</Text>
-        <Modal visible={btn} >
-          <Calculo/>
+        <Modal visible={btn}>
+          <Calculo fechar={sairModal}/>
         </Modal>
       </TouchableOpacity>
     </SafeAreaView>
