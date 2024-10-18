@@ -6,6 +6,7 @@ import Calculo from './src/Modal/Calcular';
 export default function App(){
 
   const img = require('./assets/logo.png');
+  const imgGas = require('./assets/gas.png')
 
   const [alcool, setAlcool] = useState('');
   const [gasolina, setGasolina] = useState('');
@@ -42,8 +43,8 @@ export default function App(){
 
       <TouchableOpacity style={styles.areaBtn} onPress={abrirModal}>
         <Text style={styles.textBtn}>Calcular</Text>
-        <Modal visible={btn}>
-          <Calculo fechar={sairModal}/>
+        <Modal visible={btn} animationType='slide' transparent={false}>
+          <Calculo fechar={sairModal} imagem={imgGas}/>
         </Modal>
       </TouchableOpacity>
     </SafeAreaView>
