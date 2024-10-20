@@ -10,7 +10,7 @@ export default function Calculo({fechar, imagem, result, gasolina, alcool,valor}
         <View style={styles.containerModal}>
             <View style={styles.logoGas}>
                 <Image source={imagem} style={styles.imgGas}/>
-                <Text style={styles.resultado}>{result}</Text>
+                <Text style={styles.resultado}>Compensa usar {result}</Text>
             
                 <View style={styles.showResult}>
                     <Text style={styles.showPrice}>Com os preços:</Text>

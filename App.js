@@ -12,8 +12,9 @@ export default function App(){
   const [gasolina, setGasolina] = useState('');
   const [btn, setBtn] = useState(false)
 
-  let valor = Math.floor(alcool / gasolina).toFixed(1)
-  let resultado = (Math.floor(alcool / gasolina).toFixed(1)) < 0.7 ? 'Compensa usar Álcool.' : 'Compensa usar Gasolina.'
+  // Outro jeito de chegar ao resultado
+  // let valor = Math.floor(alcool / gasolina).toFixed(1)
+  // let resultado = (Math.floor(alcool / gasolina).toFixed(1)) < 0.7 ? 'Compensa usar Álcool.' : 'Compensa usar Gasolina.'
 
   function abrirModal(){
     setBtn(true) 
@@ -24,6 +25,19 @@ export default function App(){
 
     setAlcool('')
     setGasolina('') 
+  }
+
+  let resultado = function(alcool, gasolina){
+
+    const divisao = parseFloat(alcool) / parseFloat(gasolina)
+
+    if(divisao === 1){
+      return 'Qualquer um'
+    } else if(divisao < 0.7){
+      return 'Álcool'
+    } else{
+      return 'Gasolina'
+    }
   }
 
   return(
@@ -50,8 +64,8 @@ export default function App(){
       <TouchableOpacity style={styles.areaBtn} onPress={abrirModal}>
         <Text style={styles.textBtn}>Calcular</Text>
         <Modal visible={btn} animationType='slide' transparent={false}>
-          <Calculo fechar={sairModal} imagem={imgGas}  result={resultado} alcool={alcool} gasolina={gasolina}
-          valor={valor}/>
+          <Calculo fechar={sairModal} imagem={imgGas}  result={resultado(alcool, gasolina)} alcool={alcool} gasolina={gasolina}
+          />
         </Modal>
       </TouchableOpacity>
     </SafeAreaView>
