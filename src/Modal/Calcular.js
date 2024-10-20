@@ -10,7 +10,7 @@ export default function Calculo({fechar, imagem, result, gasolina, alcool,valor}
         <View style={styles.containerModal}>
             <View style={styles.logoGas}>
                 <Image source={imagem} style={styles.imgGas}/>
-                <Text style={styles.resultado}>Compensa usar {result}</Text>
+                <Text style={styles.resultado}>{result === true ? `Compensa usar ${result}` : 'Coloque algum valor'}</Text>
             
                 <View style={styles.showResult}>
                     <Text style={styles.showPrice}>Com os preços:</Text>
@@ -19,7 +19,7 @@ export default function Calculo({fechar, imagem, result, gasolina, alcool,valor}
                     
                 </View>
 
-                <Text style={styles.resultValor}>{valor != true ? '' : `A média foi: ${valor}`}</Text>
+            
 
             </View>
             <TouchableOpacity style={styles.calcularDnv} onPress={fechar}>
