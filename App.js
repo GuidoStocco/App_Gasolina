@@ -16,10 +16,7 @@ export default function App(){
   let resultado = (Math.floor(alcool / gasolina).toFixed(1)) < 0.7 ? 'Compensa usar Álcool.' : 'Compensa usar Gasolina.'
 
   function abrirModal(){
-    setBtn(true)
-    
-    
-    
+    setBtn(true) 
   }
 
   function sairModal(){
@@ -40,13 +37,13 @@ export default function App(){
         <View style={styles.areaInput}>
           <Text style={styles.text}>Álcool (preço por litro):</Text>    
           <TextInput style={styles.input} placeholder='Ex: 4.60' onChangeText={(text) => setAlcool(text)}
-              keyboardType='numeric'/>
+              keyboardType='numeric' value={alcool}/>
         </View>
 
         <View style={styles.areaInput}>
           <Text style={styles.text}>Gasolina (preço por litro):</Text>    
           <TextInput style={styles.input} placeholder='Ex: 7.50' onChangeText={(text) => setGasolina(text)}
-            keyboardType='numeric'/>
+            keyboardType='numeric' value={gasolina}/>
         </View>
       </View>
 
