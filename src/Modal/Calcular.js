@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, Button, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-export default function Calculo({fechar, imagem, result}){
+export default function Calculo({fechar, imagem, result, gasolina, alcool}){
     // const imgGas = require('./assets/gas.png');
     const [btnVoltar, setBtnVoltar] = useState(true)
     
@@ -10,12 +10,12 @@ export default function Calculo({fechar, imagem, result}){
         <View style={styles.containerModal}>
             <View style={styles.logoGas}>
                 <Image source={imagem} style={styles.imgGas}/>
-                <Text style={styles.resultado}>Compensar usar Alcool</Text>
+                <Text style={styles.resultado}>{result}</Text>
             
                 <View style={styles.showResult}>
                     <Text style={styles.showPrice}>Com os preços:</Text>
-                    <Text style={styles.result}>Álcool: R$4.70</Text>
-                    <Text style={styles.result}>Gasolina: R$6.70</Text>
+                    <Text style={styles.result}>Álcool: R${alcool}</Text>
+                    <Text style={styles.result}>Gasolina: R${gasolina}</Text>
                     
                 </View>
             </View>
