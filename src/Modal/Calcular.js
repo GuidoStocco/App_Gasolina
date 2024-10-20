@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, Button, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-export default function Calculo({fechar, imagem, result, gasolina, alcool}){
+export default function Calculo({fechar, imagem, result, gasolina, alcool,valor}){
     // const imgGas = require('./assets/gas.png');
     const [btnVoltar, setBtnVoltar] = useState(true)
     
@@ -18,6 +18,9 @@ export default function Calculo({fechar, imagem, result, gasolina, alcool}){
                     <Text style={styles.result}>Gasolina: R${gasolina}</Text>
                     
                 </View>
+
+                <Text style={styles.resultValor}>{valor != true ? '' : `A média foi: ${valor}`}</Text>
+
             </View>
             <TouchableOpacity style={styles.calcularDnv} onPress={fechar}>
                 <Text style={styles.btnCalcular}>Calcular Novamente</Text>
@@ -42,7 +45,7 @@ const styles = StyleSheet.create({
     resultado:{
         marginTop: 30,
         fontSize: 28,
-        color: '#fff'
+        color: '#33cc33'
     },      
     showResult:{
         marginTop: 30,
@@ -72,5 +75,10 @@ const styles = StyleSheet.create({
     btnCalcular:{
         color: '#ff1a1a',
         fontSize: 25
+    },
+    resultValor:{
+        fontSize: 20,
+        marginTop: 30,
+        color: '#f1f1f1'
     }
 })

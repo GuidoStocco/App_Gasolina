@@ -12,15 +12,21 @@ export default function App(){
   const [gasolina, setGasolina] = useState('');
   const [btn, setBtn] = useState(false)
 
-  let resultado = (Math.floor(alcool / gasolina).toFixed(1)) < 0.7 ? 'Mais vantajoso abastecer com Álcool.' : 'Mais vantajoso abastecer com Gasolina.'
+  let valor = Math.floor(alcool / gasolina).toFixed(1)
+  let resultado = (Math.floor(alcool / gasolina).toFixed(1)) < 0.7 ? 'Compensa usar Álcool.' : 'Compensa usar Gasolina.'
 
   function abrirModal(){
     setBtn(true)
+    
+    
     
   }
 
   function sairModal(){
     setBtn(false)
+
+    setAlcool('')
+    setGasolina('') 
   }
 
   return(
@@ -48,7 +54,7 @@ export default function App(){
         <Text style={styles.textBtn}>Calcular</Text>
         <Modal visible={btn} animationType='slide' transparent={false}>
           <Calculo fechar={sairModal} imagem={imgGas}  result={resultado} alcool={alcool} gasolina={gasolina}
-          />
+          valor={valor}/>
         </Modal>
       </TouchableOpacity>
     </SafeAreaView>
